@@ -51,6 +51,10 @@ EXCLUDED_MAIN_CATEGORIES = {"Tüpler"}
 DETAIL_WORKERS = 4
 # More failed product pages than this and nothing is published: the site is having trouble.
 MAX_DETAIL_FAILURES = 0.2
+PAGE_TIMEOUT = 30
+# A details run stops starting new pages after this, and publishes what it has: the rest
+# keep their files from earlier runs and come first next time.
+DETAILS_BUDGET_S = 15 * 60
 ISTANBUL = timezone(timedelta(hours=3))
 
 
@@ -58,9 +62,9 @@ def now() -> str:
     return datetime.now(ISTANBUL).isoformat(timespec="seconds")
 
 
-def read_page(path: str) -> str:
+def read_page(path: str, timeout: float = 90) -> str:
     request = urllib.request.Request(BASE + path, headers=HEADERS)
-    with urllib.request.urlopen(request, timeout=90) as response:
+    with urllib.request.urlopen(request, timeout=timeout) as response:
         body = response.read()
         if response.headers.get("Content-Encoding") == "gzip":
             body = gzip.decompress(body)
@@ -87,7 +91,7 @@ def catalog() -> dict:
 
 
 def detail(path: str) -> dict:
-    data, _ = next_data(read_page(path))
+    data, _ = next_data(read_page(path, PAGE_TIMEOUT))
     return {"read_at": now(), "path": path, "detail": data["props"]["pageProps"].get("detail")}
 
 
@@ -103,28 +107,54 @@ def run_catalog(out: str) -> int:
     return 0
 
 
+def previous_read_at(out_dir: str, pid: str) -> str:
+    """read_at of the product's file from an earlier run, "" when there is none."""
+    try:
+        with open(os.path.join(out_dir, pid + ".json"), encoding="utf-8") as f:
+            return json.load(f).get("read_at") or ""
+    except (OSError, ValueError):
+        return ""
+
+
 def run_details(out_dir: str) -> int:
+    """Refresh the product files in out_dir (which may hold an earlier run's files):
+    products without a file first, then the oldest."""
     cat = catalog()
     wanted = [(str(p["ProductID"]), cat["paths"].get(str(p["ProductID"])))
               for p in cat["products"] if p.get("MainCategoryTitle") not in EXCLUDED_MAIN_CATEGORIES]
-    wanted = [(pid, path) for pid, path in wanted if path]
     os.makedirs(out_dir, exist_ok=True)
+    wanted = sorted(((pid, path) for pid, path in wanted if path),
+                    key=lambda item: previous_read_at(out_dir, item[0]))
     began = time.monotonic()
+    seconds = []
 
     def one(item):
         pid, path = item
+        if time.monotonic() - began > DETAILS_BUDGET_S:
+            return "skipped"
+        start = time.monotonic()
         try:
             write_json(os.path.join(out_dir, pid + ".json"), detail(path))
-            return None
+            outcome = None
         except Exception as e:  # one page failing doesn't stop the others
-            return f"{pid}: {e}"
+            outcome = f"{pid}: {e}"
+        seconds.append(time.monotonic() - start)
+        if len(seconds) % 25 == 0:
+            print(f"{len(seconds)} pages, {time.monotonic() - began:.0f} s", flush=True)
+        return outcome
 
     with ThreadPoolExecutor(DETAIL_WORKERS) as pool:
-        failures = [f for f in pool.map(one, wanted) if f]
-    print(f"{len(wanted) - len(failures)}/{len(wanted)} product pages in {time.monotonic() - began:.0f} s")
+        outcomes = list(pool.map(one, wanted))
+    skipped = outcomes.count("skipped")
+    failures = [o for o in outcomes if o and o != "skipped"]
+    tried = len(wanted) - skipped
+    seconds.sort()
+    print(f"{tried - len(failures)}/{len(wanted)} product pages in {time.monotonic() - began:.0f} s; "
+          f"{skipped} left for the next run; per page median {seconds[len(seconds) // 2] if seconds else 0:.1f} s, "
+          f"slowest {seconds[-1] if seconds else 0:.1f} s")
     for f in failures[:10]:
         print("failed", f, file=sys.stderr)
-    if len(failures) > MAX_DETAIL_FAILURES * len(wanted):
+    if len(failures) > MAX_DETAIL_FAILURES * max(tried, 1):
         print("too many failures: publishing nothing", file=sys.stderr)
         return 1
     return 0

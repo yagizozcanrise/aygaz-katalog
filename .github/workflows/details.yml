@@ -17,13 +17,19 @@ concurrency:
 jobs:
   snapshot:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Read every product page
+      # Start from the last published files: a run that stops at its time budget keeps
+      # the older files for the pages it didn't reach.
+      - name: Previous details
+        run: |
+          git clone -q --depth 1 -b details "https://github.com/${{ github.repository }}.git" "$RUNNER_TEMP/details" \
+            && rm -rf "$RUNNER_TEMP/details/.git" || mkdir -p "$RUNNER_TEMP/details"
+      - name: Read the product pages
         run: python snapshot.py details "$RUNNER_TEMP/details"
       # The details branch holds one commit with <product id>.json files, replaced on
       # every run. A separate branch from data, so the two workflows never overwrite each other.

@@ -1,8 +1,9 @@
 # aygaz-katalog
 
-A snapshot of the www.aygaz.com.tr product catalog, refreshed every 15 minutes, and of each
-product's page, refreshed every 2 hours, for the Aygaz chatbot's `aygaz_products` tool. The site's `/urunler` page takes 5-10 s to serve;
-this file is read in a fraction of a second.
+Snapshots of www.aygaz.com.tr product data for the Aygaz chatbot's `aygaz_products` tool:
+the catalog, refreshed every 15 minutes, and each product's page, refreshed every 2 hours.
+The site takes 5-10 s to serve the catalog page and about 2 s per product page; these
+files are read in a fraction of a second.
 
 - **File:** `https://raw.githubusercontent.com/yagizozcanrise/aygaz-katalog/data/catalog.json`
   (`data` branch, one commit, replaced on every run; GitHub caches it for up to 5 minutes).
@@ -15,8 +16,10 @@ this file is read in a fraction of a second.
 - **Product details:** `https://raw.githubusercontent.com/yagizozcanrise/aygaz-katalog/details/<product id>.json`
   (`details` branch): each product page's `props.pageProps.detail` (specs, compatible
   tubes, campaigns, description, accessories, …), read every 2 hours by
-  `.github/workflows/details.yml`, 4 pages at a time. A run with more than 20% failed pages
-  publishes nothing.
+  `.github/workflows/details.yml`, 4 pages at a time. A run starts from the last published
+  files, reads the products without a file and then the oldest, stops starting pages after
+  15 minutes and publishes what it has. A run with more than 20% failed pages publishes
+  nothing.
 - **Freshness:** the tool falls back to reading the site live when the catalog is older
   than an hour or a product's details older than 6 hours, missing or broken. Price and
   stock in a product's details are replaced with the catalog's, which is at most ~20
