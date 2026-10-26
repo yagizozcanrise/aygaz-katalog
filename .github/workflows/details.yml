@@ -6,6 +6,16 @@ on:
     # about 400 product pages. Price and stock come from the 15-minute catalog instead.
     - cron: "41 */2 * * *"
   workflow_dispatch:
+    inputs:
+      workers:
+        description: Product pages read at a time
+        default: "4"
+      delay:
+        description: Seconds to wait after each page, per worker
+        default: "0"
+      budget:
+        description: Seconds before the run stops starting pages
+        default: "900"
 
 permissions:
   contents: write
@@ -31,6 +41,10 @@ jobs:
             && rm -rf "$RUNNER_TEMP/details/.git" || mkdir -p "$RUNNER_TEMP/details"
       - name: Read the product pages
         run: python snapshot.py details "$RUNNER_TEMP/details"
+        env:
+          DETAILS_WORKERS: ${{ inputs.workers || '4' }}
+          DETAILS_DELAY_S: ${{ inputs.delay || '0' }}
+          DETAILS_BUDGET_S: ${{ inputs.budget || '900' }}
       # The details branch holds one commit with <product id>.json files, replaced on
       # every run. A separate branch from data, so the two workflows never overwrite each other.
       - name: Publish to the details branch

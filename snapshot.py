@@ -48,13 +48,16 @@ MIN_PRODUCTS = 200
 # Tubes are out of the chatbot's scope; their pages are not read.
 EXCLUDED_MAIN_CATEGORIES = {"Tüpler"}
 # A few product pages at a time, so the site isn't loaded more than by a few visitors.
-DETAIL_WORKERS = 4
+# The site slows down and then times out a GitHub runner reading 4 pages at a time.
+DETAIL_WORKERS = int(os.environ.get("DETAILS_WORKERS", "4"))
+# Pause after each page, per worker.
+DETAIL_DELAY_S = float(os.environ.get("DETAILS_DELAY_S", "0"))
 # More failed product pages than this and nothing is published: the site is having trouble.
 MAX_DETAIL_FAILURES = 0.2
 PAGE_TIMEOUT = 30
 # A details run stops starting new pages after this, and publishes what it has: the rest
 # keep their files from earlier runs and come first next time.
-DETAILS_BUDGET_S = 15 * 60
+DETAILS_BUDGET_S = float(os.environ.get("DETAILS_BUDGET_S", str(15 * 60)))
 ISTANBUL = timezone(timedelta(hours=3))
 
 
@@ -139,6 +142,7 @@ def run_details(out_dir: str) -> int:
         except Exception as e:  # one page failing doesn't stop the others
             outcome = f"{pid}: {e}"
         seconds.append(time.monotonic() - start)
+        time.sleep(DETAIL_DELAY_S)
         if len(seconds) % 25 == 0:
             print(f"{len(seconds)} pages, {time.monotonic() - began:.0f} s", flush=True)
         return outcome
