@@ -2,7 +2,9 @@ name: catalog
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # GitHub may start a scheduled run a few minutes late
+    # Every 15 minutes, off the busy :00/:15/:30/:45 marks, where GitHub delays or drops
+    # scheduled runs most; a run may still start a few minutes late.
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
 
 permissions:
