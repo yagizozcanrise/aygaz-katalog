@@ -1,0 +1,37 @@
+name: catalog
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # GitHub may start a scheduled run a few minutes late
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Read the catalog
+        run: python snapshot.py "$RUNNER_TEMP/catalog.json"
+      # The data branch holds one commit with catalog.json, replaced on every run,
+      # so the repository doesn't grow by a commit every 15 minutes.
+      - name: Publish to the data branch
+        run: |
+          cd "$RUNNER_TEMP"
+          rm -rf data && mkdir data && cd data
+          git init -q -b data
+          cp "$RUNNER_TEMP/catalog.json" .
+          git add catalog.json
+          git -c user.name="catalog bot" -c user.email="actions@users.noreply.github.com" \
+            commit -q -m "Catalog snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" data
