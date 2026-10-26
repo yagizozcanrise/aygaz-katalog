@@ -1,0 +1,37 @@
+name: details
+
+on:
+  schedule:
+    # Every 2 hours: specs, descriptions and campaigns change rarely, and each run reads
+    # about 400 product pages. Price and stock come from the 15-minute catalog instead.
+    - cron: "41 */2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: details
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Read every product page
+        run: python snapshot.py details "$RUNNER_TEMP/details"
+      # The details branch holds one commit with <product id>.json files, replaced on
+      # every run. A separate branch from data, so the two workflows never overwrite each other.
+      - name: Publish to the details branch
+        run: |
+          cd "$RUNNER_TEMP/details"
+          git init -q -b details
+          git add .
+          git -c user.name="catalog bot" -c user.email="actions@users.noreply.github.com" \
+            commit -q -m "Product details $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" details
