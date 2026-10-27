@@ -40,4 +40,21 @@ It needs `python3`, `git` and the GitHub CLI logged in as `yagizozcanrise`. It r
 pages with `snapshot.py` and replaces the `data` and `details` branches. A failed read
 publishes nothing.
 
+### On a schedule from a Mac
+
+`schedule.sh` runs `publish.sh` every 4 hours with launchd, from a clone in
+`~/Library/Application Support/aygaz-katalog` (macOS keeps background jobs out of
+`~/Desktop`), pulling `main` before each run:
+
+```bash
+./schedule.sh install     # runs now, then every 4 hours
+./schedule.sh status      # last runs (log: ~/Library/Logs/aygaz-katalog.log)
+./schedule.sh uninstall
+```
+
+It runs only while the Mac is awake and logged in; a run missed during sleep starts on
+wake. When no run has published for 6 hours, the tool reads the site live as before.
+The scheduled job uses the copy of `publish.sh` on GitHub, so push changes before they
+take effect.
+
 Only public data from the site's own pages is stored here.
