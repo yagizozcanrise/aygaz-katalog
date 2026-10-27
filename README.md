@@ -1,7 +1,8 @@
 # aygaz-katalog
 
 Snapshots of www.aygaz.com.tr product data for the Aygaz chatbot's `aygaz_products` tool:
-the catalog, refreshed every 15 minutes, and each product's page, refreshed every 2 hours.
+the catalog and each product's page. For now both are refreshed by hand with `publish.sh`
+(see "Refreshing by hand").
 The site takes 5-10 s to serve the catalog page and about 2 s per product page; these
 files are read in a fraction of a second.
 
@@ -20,9 +21,23 @@ files are read in a fraction of a second.
   files, reads the products without a file and then the oldest, stops starting pages after
   15 minutes and publishes what it has. A run with more than 20% failed pages publishes
   nothing.
-- **Freshness:** the tool falls back to reading the site live when the catalog is older
-  than an hour or a product's details older than 6 hours, missing or broken. Price and
-  stock in a product's details are replaced with the catalog's, which is at most ~20
-  minutes old.
+- **Freshness:** the tool falls back to reading the site live when the catalog or a
+  product's details are older than 6 hours, missing or broken. Price and stock in a
+  product's details are replaced with the catalog's.
+
+## Refreshing by hand
+
+GitHub's scheduler starts the catalog workflow only a few times a day, and the site times
+out product pages for GitHub's runners (the details workflow is disabled). Until this runs
+elsewhere on a schedule, refresh both from a machine in Turkey at least every 6 hours:
+
+```bash
+./publish.sh            # catalog and all product pages (about 3 minutes)
+./publish.sh catalog    # catalog only (about 10 seconds)
+```
+
+It needs `python3`, `git` and the GitHub CLI logged in as `yagizozcanrise`. It reads the
+pages with `snapshot.py` and replaces the `data` and `details` branches. A failed read
+publishes nothing.
 
 Only public data from the site's own pages is stored here.
