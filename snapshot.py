@@ -45,8 +45,9 @@ PRODUCT_LINK = re.compile(r'href="(/urunler/[^"]*-pid-(\d+))"')
 NEXT_DATA_OPEN = '<script id="__NEXT_DATA__"'
 # The site lists about 410 products; far fewer means a broken page, not a smaller catalog.
 MIN_PRODUCTS = 200
-# Tubes are out of the chatbot's scope; their pages are not read.
-EXCLUDED_MAIN_CATEGORIES = {"Tüpler"}
+# Only the main categories in the chatbot's scope have their pages read (barbecues, heaters,
+# camping; the same list as _SCOPE_MAIN_CATEGORIES in the tool).
+SCOPE_MAIN_CATEGORIES = {159, 160, 161, 784}
 # A few product pages at a time, so the site isn't loaded more than by a few visitors.
 # The site slows down and then times out a GitHub runner reading 4 pages at a time.
 DETAIL_WORKERS = int(os.environ.get("DETAILS_WORKERS", "4"))
@@ -124,7 +125,7 @@ def run_details(out_dir: str) -> int:
     products without a file first, then the oldest."""
     cat = catalog()
     wanted = [(str(p["ProductID"]), cat["paths"].get(str(p["ProductID"])))
-              for p in cat["products"] if p.get("MainCategoryTitle") not in EXCLUDED_MAIN_CATEGORIES]
+              for p in cat["products"] if p.get("MainCategoryID") in SCOPE_MAIN_CATEGORIES]
     os.makedirs(out_dir, exist_ok=True)
     wanted = sorted(((pid, path) for pid, path in wanted if path),
                     key=lambda item: previous_read_at(out_dir, item[0]))

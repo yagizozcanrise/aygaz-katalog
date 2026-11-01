@@ -1,0 +1,15 @@
+{
+  "products": {},
+  "categories": {
+    "129": ["Izgara alanı ve ısı gücü ne kadar?"],
+    "242": ["Izgara alanı ve ısı gücü ne kadar?"],
+    "243": ["Izgara alanı ve ısı gücü ne kadar?"],
+    "244": ["Izgara alanı ve ısı gücü ne kadar?"],
+    "391": ["Kutuda neler var?", "Izgara alanı ne kadar?"],
+    "132": ["Isı gücü ve gaz tüketimi ne kadar?"],
+    "193": ["Kapalı alanda nasıl güvenle kullanılır?", "Isı gücü ve gaz tüketimi ne kadar?"],
+    "394": ["Kaç kg taşır?", "Katlanınca ölçüleri ne?"],
+    "417": ["Kaç kg taşır?", "Katlanınca ölçüleri ne?"]
+  },
+  "main_categories": {}
+}
