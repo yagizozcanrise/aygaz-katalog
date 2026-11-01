@@ -9,7 +9,8 @@
     "132": ["Isı gücü ve gaz tüketimi ne kadar?"],
     "193": ["Kapalı alanda nasıl güvenle kullanılır?", "Isı gücü ve gaz tüketimi ne kadar?"],
     "394": ["Kaç kg taşır?", "Katlanınca ölçüleri ne?"],
-    "417": ["Kaç kg taşır?", "Katlanınca ölçüleri ne?"]
+    "417": ["Kaç kg taşır?", "Katlanınca ölçüleri ne?"],
+    "793": ["Sette hangi ürünler var?", "Sete tüp dahil mi?"]
   },
   "main_categories": {}
 }
