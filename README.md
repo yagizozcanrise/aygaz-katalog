@@ -10,7 +10,8 @@ files are read in a fraction of a second.
   (`data` branch, one commit, replaced on every run; GitHub caches it for up to 5 minutes).
 - **Content:** `read_at` (Istanbul time), `products` (the page's `__NEXT_DATA__`
   `props.pageProps.products`, unchanged) and `paths` (product id → working page path,
-  taken from the page's links).
+  taken from the page's links). Next to it `paths.json`: the same paths for the chatbot's
+  categories only, which the page script reads to repair product links the bot mistypes.
 - **Schedule:** `.github/workflows/catalog.yml` runs `snapshot.py catalog` every 15 minutes
   (GitHub may start it a few minutes late) and on demand (Actions → catalog → Run workflow).
   A failed read publishes nothing, so the last good file stays.

@@ -11,6 +11,8 @@ instead and falls back to the pages when a file is missing, stale or broken.
 catalog: {"read_at": "2026-10-26T14:30:00+03:00",
           "products": [...],                 # props.pageProps.products, as the site sends them
           "paths": {"1002": "/urunler/..."}}   # each product's working page path from the page's links
+          and paths.json next to it: {"1002": "/urunler/..."} for the chatbot's categories only,
+          read by the page script to repair product links the bot mistypes
 details: OUT_DIR/<product id>.json =
          {"read_at": ..., "path": "/urunler/...",
           "detail": {...}}                   # props.pageProps.detail, as the site sends it;
@@ -107,6 +109,9 @@ def write_json(path: str, data: dict) -> None:
 def run_catalog(out: str) -> int:
     data = catalog()
     write_json(out, data)
+    scope = {str(p["ProductID"]) for p in data["products"] if p.get("MainCategoryID") in SCOPE_MAIN_CATEGORIES}
+    write_json(os.path.join(os.path.dirname(out) or ".", "paths.json"),
+               {pid: path for pid, path in data["paths"].items() if pid in scope})
     print(f"{len(data['products'])} products, {len(data['paths'])} paths, read_at {data['read_at']}")
     return 0
 

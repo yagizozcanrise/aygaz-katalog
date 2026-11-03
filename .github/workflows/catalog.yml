@@ -32,8 +32,8 @@ jobs:
           cd "$RUNNER_TEMP"
           rm -rf data && mkdir data && cd data
           git init -q -b data
-          cp "$RUNNER_TEMP/catalog.json" .
-          git add catalog.json
+          cp "$RUNNER_TEMP/catalog.json" "$RUNNER_TEMP/paths.json" .
+          git add catalog.json paths.json
           git -c user.name="catalog bot" -c user.email="actions@users.noreply.github.com" \
             commit -q -m "Catalog snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
           git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" data
