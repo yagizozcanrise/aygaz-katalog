@@ -1,16 +1,579 @@
 {
-  "products": {},
-  "categories": {
-    "129": ["Izgara alanı ve ısı gücü ne kadar?"],
-    "242": ["Izgara alanı ve ısı gücü ne kadar?"],
-    "243": ["Izgara alanı ve ısı gücü ne kadar?"],
-    "244": ["Izgara alanı ve ısı gücü ne kadar?"],
-    "391": ["Kutuda neler var?", "Izgara alanı ne kadar?"],
-    "132": ["Isı gücü ve gaz tüketimi ne kadar?"],
-    "193": ["Kapalı alanda nasıl güvenle kullanılır?", "Isı gücü ve gaz tüketimi ne kadar?"],
-    "394": ["Kaç kg taşır?", "Katlanınca ölçüleri ne?"],
-    "417": ["Kaç kg taşır?", "Katlanınca ölçüleri ne?"],
-    "793": ["Sette hangi ürünler var?", "Sete tüp dahil mi?"]
+  "products": {
+    "964": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "965": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "966": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "967": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "968": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "971": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "979": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "981": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "986": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "989": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "990": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "994": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Dedantör geliyor mu?"
+    ],
+    "995": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "996": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Termometre var mı?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1000": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?",
+      "Dedantör geliyor mu?"
+    ],
+    "1002": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?",
+      "Termometre var mı?"
+    ],
+    "1003": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?",
+      "Termometre var mı?"
+    ],
+    "1006": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Termometre var mı?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1062": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Dedantör geliyor mu?"
+    ],
+    "1074": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "1081": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Tekerlekli mi, taşıması kolay mı?",
+      "Dedantör geliyor mu?"
+    ],
+    "1082": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Termometre var mı?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1122": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "1123": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?",
+      "Dedantör geliyor mu?"
+    ],
+    "1128": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?",
+      "Dedantör geliyor mu?"
+    ],
+    "1132": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?",
+      "Dedantör geliyor mu?"
+    ],
+    "1133": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?",
+      "Dedantör geliyor mu?"
+    ],
+    "1134": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Dedantör geliyor mu?"
+    ],
+    "1136": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1137": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1150": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "1151": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "1187": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1189": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?",
+      "Güvenlik özellikleri neler?"
+    ],
+    "1191": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1221": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?",
+      "Dedantör geliyor mu?"
+    ],
+    "1302": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1304": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Dedantör geliyor mu?"
+    ],
+    "1306": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?",
+      "Dedantör geliyor mu?"
+    ],
+    "1307": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Termometre var mı?",
+      "Tekerlekli mi, taşıması kolay mı?",
+      "Dedantör geliyor mu?"
+    ],
+    "1308": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Termometre var mı?",
+      "Tekerlekli mi, taşıması kolay mı?",
+      "Dedantör geliyor mu?"
+    ],
+    "1311": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Termometre var mı?",
+      "Tekerlekli mi, taşıması kolay mı?",
+      "Dedantör geliyor mu?"
+    ],
+    "1313": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?",
+      "Dedantör geliyor mu?"
+    ],
+    "1324": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "1345": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "1346": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Piezo ateşlemeli mi?",
+      "Termometre var mı?"
+    ],
+    "1348": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "1349": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?",
+      "Dedantör geliyor mu?"
+    ],
+    "1350": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Piezo ateşlemeli mi?",
+      "Termometre var mı?"
+    ],
+    "1351": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "1357": [
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?",
+      "Dedantör geliyor mu?"
+    ],
+    "1362": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "1370": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Termometre var mı?",
+      "Tekerlekli mi, taşıması kolay mı?",
+      "Dedantör geliyor mu?"
+    ],
+    "1371": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "1372": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1375": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?",
+      "Termometre var mı?"
+    ],
+    "1400": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Piezo ateşlemeli mi?",
+      "Termometre var mı?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1401": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "1402": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Piezo ateşlemeli mi?",
+      "Termometre var mı?",
+      "Dedantör geliyor mu?"
+    ],
+    "1404": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Piezo ateşlemeli mi?",
+      "Termometre var mı?"
+    ],
+    "1406": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "1483": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Piezo ateşlemeli mi?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1674": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1675": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "1676": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "2427": [
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "2428": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "2429": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Tekerlekli mi, taşıması kolay mı?"
+    ],
+    "3224": [
+      "Kaç kg taşır, katlanınca ölçüsü ne?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?"
+    ],
+    "3484": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?"
+    ],
+    "3490": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3682": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "3683": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "3684": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "3685": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "3686": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "3687": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "3688": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3689": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3690": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3691": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3692": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3706": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "3720": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3721": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3722": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3724": [
+      "Izgara alanı ve ısı gücü ne kadar?"
+    ],
+    "3780": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?"
+    ],
+    "3781": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Nasıl kullanılır, ipuçları neler?",
+      "Tekerlekli mi, taşıması kolay mı?",
+      "Kaç metrekarelik alanı ısıtır?"
+    ],
+    "3789": [
+      "Piezo ateşlemeli mi?"
+    ],
+    "3829": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Piezo ateşlemeli mi?"
+    ],
+    "4016": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?",
+      "Nasıl kullanılır, ipuçları neler?"
+    ],
+    "4155": [
+      "Sette neler var?"
+    ],
+    "4157": [
+      "Sette neler var?"
+    ],
+    "4158": [
+      "Sette neler var?"
+    ],
+    "4159": [
+      "Sette neler var?"
+    ],
+    "4161": [
+      "Sette neler var?"
+    ],
+    "4163": [
+      "Sette neler var?"
+    ],
+    "4165": [
+      "Sette neler var?"
+    ],
+    "4620": [
+      "Sette neler var?"
+    ],
+    "4621": [
+      "Sette neler var?"
+    ],
+    "4622": [
+      "Sette neler var?"
+    ]
   },
-  "main_categories": {}
+  "categories": {
+    "129": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Ağırlığı ve ölçüleri ne kadar?"
+    ],
+    "242": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Ağırlığı ve ölçüleri ne kadar?"
+    ],
+    "243": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Gaz tüketimi ne kadar?",
+      "Ağırlığı ve ölçüleri ne kadar?"
+    ],
+    "244": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Ağırlığı ve ölçüleri ne kadar?"
+    ],
+    "284": [
+      "Izgara alanı ve ısı gücü ne kadar?",
+      "Kutuda neler var?"
+    ],
+    "391": [
+      "Kutuda neler var?",
+      "Izgara alanı ne kadar?",
+      "Ağırlığı ve ölçüleri ne kadar?"
+    ],
+    "395": [
+      "Ölçüleri ve ağırlığı ne kadar?"
+    ],
+    "196": [
+      "Ölçüleri ve ağırlığı ne kadar?",
+      "Çalışma yüksekliği ne kadar?"
+    ],
+    "132": [
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "193": [
+      "Kapalı alanda nasıl güvenle kullanılır?",
+      "Isı gücü ve gaz tüketimi ne kadar?",
+      "Ağırlığı ve ölçüleri ne kadar?"
+    ],
+    "257": [
+      "Ölçüleri ne kadar?",
+      "Kutuda neler var?"
+    ],
+    "131": [
+      "Boyutları ve ağırlığı ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "227": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "394": [
+      "Kaç kg taşır?",
+      "Katlanınca ölçüleri ne?",
+      "Kumaşı ve çerçevesi neyden yapılmış?"
+    ],
+    "417": [
+      "Kaç kg taşır?",
+      "Katlanınca ölçüleri ne?",
+      "Kumaşı ve çerçevesi neyden yapılmış?"
+    ],
+    "793": [
+      "Sette hangi ürünler var?",
+      "Sete tüp dahil mi?"
+    ]
+  },
+  "main_categories": {
+    "159": [
+      "Izgara alanı ne kadar?",
+      "Ağırlığı ve ölçüleri ne kadar?"
+    ],
+    "160": [
+      "Isı gücü ne kadar?",
+      "Ağırlığı ve ölçüleri ne kadar?"
+    ],
+    "161": [
+      "Ağırlığı ve ölçüleri ne kadar?",
+      "Kullanırken nelere dikkat etmeliyim?"
+    ],
+    "784": [
+      "Sette hangi ürünler var?",
+      "Sete tüp dahil mi?"
+    ]
+  }
 }
